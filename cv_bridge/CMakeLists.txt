@@ -14,6 +14,9 @@ else()
 find_package(Boost REQUIRED)
 endif()
 find_package(OpenCV 3 REQUIRED
+  NO_MODULE        # should be optional, tells CMake to use config mode
+  PATHS /usr/local # look here
+  NO_DEFAULT_PATH  # and don't look anywhere else
   COMPONENTS
     opencv_core
     opencv_imgproc
@@ -46,3 +49,4 @@ install(
   DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
+
